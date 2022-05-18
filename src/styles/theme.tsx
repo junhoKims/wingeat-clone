@@ -14,5 +14,10 @@ const theme = {
     mainColor: '#f95e5e',
     backgroundColor: '#fff',
   },
+
+  container: {
+    marginMobile: '0 10vw',
+    marginPC: '0 8vw',
+  },
 };
 export default theme;

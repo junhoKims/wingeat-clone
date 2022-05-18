@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body{
+    font-size : 16px;
     overflow:auto;
     backg
     font-family: 'Apple SD Gothic Neo','-apple-system','BlinkMacSystemFont','Spoqa Han Sans Neo','Malgun Gothic','sans-serif';
@@ -52,9 +53,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   input{
-    border:none;
-    outline:none;
-    background:none;
+    /* border:none; */
+    /* outline:none; */
+    /* background:none; */
+  }
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
   }
 
   /* webkit input padding off */
