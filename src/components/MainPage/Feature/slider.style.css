@@ -1,0 +1,12 @@
+.swiper-container {
+  border-top: 1px solid #eee;
+  width: 100%;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: black;
+}
+
+.swiper-pagination {
+  /* margin-left: 35%; */
+}
