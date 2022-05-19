@@ -1,21 +1,26 @@
 import styled from 'styled-components';
 import { IMAGE_ENDPOINT, LOGO_IMAGE } from '@lib/config/endpoints';
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router';
 
-type Props = {};
+type Props = {
+  cartItemCount: number;
+};
 
-const Header = (props: Props) => {
+const Header = ({ cartItemCount }: Props) => {
   const navigate = useNavigate();
 
   const handleClickCartButton = useCallback(() => {
     navigate('/cart');
-  }, []);
+  }, [navigate]);
 
   return (
     <Wrapper>
       <CartButtonBox>
-        <CartButton onClick={handleClickCartButton}>장바구니</CartButton>
+        <CartButtonWrapper onClick={handleClickCartButton}>
+          {!!cartItemCount && <CartCountBadge>{cartItemCount}</CartCountBadge>}
+          <CartButton>장바구니</CartButton>
+        </CartButtonWrapper>
       </CartButtonBox>
       <Logo src={`${IMAGE_ENDPOINT}/${LOGO_IMAGE}`} alt='main-logo' />
     </Wrapper>
@@ -42,6 +47,7 @@ const Wrapper = styled.div`
 const Logo = styled.img`
   width: 7rem;
   margin: auto;
+  cursor: pointer;
 
   /* mobile ver */
   @media ${({ theme }) => theme.size.mobile} {
@@ -58,12 +64,12 @@ const CartButtonBox = styled.div`
   }
 `;
 
-const CartButton = styled.button`
+const CartButtonWrapper = styled.div`
+  display: flex;
+  gap: 0.2rem;
   float: right;
-  margin: 0.3rem 3rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #666;
+  margin: 0.5rem 3rem;
+  cursor: pointer;
 
   /* mobile ver */
   @media ${({ theme }) => theme.size.mobile} {
@@ -72,4 +78,22 @@ const CartButton = styled.button`
   }
 `;
 
-export default Header;
+const CartButton = styled.button`
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #555;
+`;
+
+const CartCountBadge = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.color.mainColor};
+  font-size: 0.6rem;
+  color: white;
+`;
+
+export default memo(Header);
