@@ -2,6 +2,8 @@ import { IMAGE_ENDPOINT } from '@lib/config/endpoints';
 import { priceCommaRegex } from '@lib/utils';
 import { ItemType } from '@types';
 import styled from 'styled-components';
+import itemPlaceholder from '@assets/placeholders/item_placeholder.png';
+import { memo } from 'react';
 
 type Props = {
   itemList: ItemType[] | [];
@@ -12,19 +14,20 @@ type Props = {
 const ItemList = ({ itemList, handleItemClick, lastElemRef }: Props) => {
   return (
     <List>
-      {itemList?.map(({ id, image, itemName, price }, key) => (
-        <ItemCard onClick={() => handleItemClick({ id, image, itemName, price })} key={key}>
-          <Image
-            src={`${IMAGE_ENDPOINT}/${image}`}
-            data-id={id}
-            alt={`item-image-${id}`}
-            isLast={key === itemList.length - 1}
-            {...(key === itemList.length - 1 && { ref: lastElemRef })}
-          />
-          <ItemName>{itemName}</ItemName>
-          <Price>{priceCommaRegex(price)}</Price>
-        </ItemCard>
-      ))}
+      {!itemList.length
+        ? [...new Array(4).fill(0)].map((v, key) => <Image src={itemPlaceholder} key={key} />)
+        : itemList?.map(({ id, image, itemName, price }, key) => (
+            <ItemCard onClick={() => handleItemClick({ id, image, itemName, price })} key={key}>
+              <Image
+                src={`${IMAGE_ENDPOINT}/${image}`}
+                data-id={id}
+                alt={`item-image-${id}`}
+                {...(key === itemList.length - 1 && { ref: lastElemRef })}
+              />
+              <ItemName>{itemName}</ItemName>
+              <Price>{priceCommaRegex(price)}</Price>
+            </ItemCard>
+          ))}
     </List>
   );
 };
@@ -50,7 +53,7 @@ export const ItemCard = styled.li`
   cursor: pointer;
 `;
 
-export const Image = styled.img<{ isLast: boolean }>`
+export const Image = styled.img`
   width: 100%;
   border-radius: 0.5rem;
   margin-bottom: 0.8rem;
@@ -69,4 +72,4 @@ export const Price = styled.p`
   }
 `;
 
-export default ItemList;
+export default memo(ItemList);
