@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
@@ -9,6 +9,9 @@ import './slider.style.css';
 
 import { FeatureImageType } from '@types';
 import { IMAGE_ENDPOINT } from '@lib/config/endpoints';
+
+import placeholderMobileSrc from '@assets/placeholders/feature_placeholder_md.png';
+import placeholderPCSrc from '@assets/placeholders/feature_placeholder_lg.png';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -31,14 +34,23 @@ const Feature = ({ images }: Props) => {
         clickable: true,
       }}
     >
-      {images.map(({ image, mobileImage }, key) => (
-        <SwiperSlide key={key}>
+      {!images.length ? (
+        <SwiperSlide>
           <Picture>
-            <source media='(max-width:768px)' srcSet={`${IMAGE_ENDPOINT}/${mobileImage}`} />
-            <img src={`${IMAGE_ENDPOINT}/${image}`} alt={`feature-banner-${key}`} />
+            <source media='(max-width:768px)' srcSet={placeholderMobileSrc} />
+            <img src={placeholderPCSrc} alt={`feature-banner-placeholder`} />
           </Picture>
         </SwiperSlide>
-      ))}
+      ) : (
+        images.map(({ image, mobileImage }, key) => (
+          <SwiperSlide key={key}>
+            <Picture>
+              <source media='(max-width:768px)' srcSet={`${IMAGE_ENDPOINT}/${mobileImage}`} />
+              <img src={`${IMAGE_ENDPOINT}/${image}`} alt={`feature-banner-${key}`} />
+            </Picture>
+          </SwiperSlide>
+        ))
+      )}
     </Swiper>
   );
 };

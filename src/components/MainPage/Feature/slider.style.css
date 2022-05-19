@@ -1,6 +1,7 @@
 .swiper-container {
   border-top: 1px solid #eee;
   width: 100%;
+  -webkit-user-drag: none;
 }
 
 .swiper-pagination-bullet-active {
@@ -8,5 +9,4 @@
 }
 
 .swiper-pagination {
-  /* margin-left: 35%; */
 }
