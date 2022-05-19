@@ -1,6 +1,7 @@
 import { IMAGE_ENDPOINT } from '@lib/config/endpoints';
 import { priceCommaRegex } from '@lib/utils';
 import { CartListType } from '@types';
+import { memo } from 'react';
 
 import styled from 'styled-components';
 
@@ -67,7 +68,7 @@ const CartItem = styled.li`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  border: 1px solid #aaa;
+  border: 0.5px solid black;
   border-radius: 1rem;
   padding: 1.2rem;
   margin-bottom: 0.4rem;
@@ -148,4 +149,4 @@ const ItemSumPrice = styled.p`
   }
 `;
 
-export default CartList;
+export default memo(CartList);
