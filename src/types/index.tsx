@@ -13,6 +13,7 @@ export type ItemType = {
 export type CartItemType = {
   item: ItemType;
   quantity: number;
+  isChecked: boolean;
 };
 
 export type CartListType = CartItemType[];

@@ -36,7 +36,6 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-size : 16px;
     overflow:auto;
-    backg
     font-family: 'Apple SD Gothic Neo','-apple-system','BlinkMacSystemFont','Spoqa Han Sans Neo','Malgun Gothic','sans-serif';
     min-height: 100vh;
     /* ios vh issue fix */
@@ -50,12 +49,6 @@ const GlobalStyle = createGlobalStyle`
   body.modal_opened {
     overflow:hidden;
     touch-action:none;
-  }
-
-  input{
-    /* border:none; */
-    /* outline:none; */
-    /* background:none; */
   }
 
   input[type=number]::-webkit-inner-spin-button, 
@@ -78,10 +71,6 @@ const GlobalStyle = createGlobalStyle`
     -moz-appearance: none; 
     appearance: none;
   }
-
-  /* svg > path{
-    pointer-events:none;
-  } */
 `;
 
 export default GlobalStyle;
