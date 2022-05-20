@@ -19,7 +19,7 @@ const MainPage = () => {
   const { cartList, handleItemClick } = useCartList();
 
   const handlePageUp = useCallback(() => {
-    setPage((page) => (page >= 6 ? page : page + 1));
+    setPage((page) => (page >= PAGE_ID_LIMIT ? page : page + 1));
   }, []);
 
   const lastElemRef = useIntersectionObserver({
