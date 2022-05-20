@@ -32,6 +32,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  user-select: none;
 
   /* mobile ver */
   @media ${({ theme }) => theme.size.mobile} {
@@ -88,8 +89,8 @@ const CartCountBadge = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.color.mainColor};
   font-size: 0.6rem;

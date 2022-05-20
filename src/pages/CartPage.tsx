@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router';
 
+import backArrowSrc from '@assets/icon/back-arrow.svg';
 import styled from 'styled-components';
 import useCartList from '@hooks/useCartList';
 import CartList from '@components/CartPage/CartList';
@@ -12,7 +13,9 @@ const CartPage = () => {
   return (
     <Wrapper>
       <Navbar>
-        <BackButton onClick={() => navigate(-1)}>&lt;</BackButton>
+        <BackButton onClick={() => navigate(-1)}>
+          <ArrowIcon src={backArrowSrc} alt='back-icon' />
+        </BackButton>
         <Title>장바구니</Title>
       </Navbar>
       <Container>
@@ -44,7 +47,8 @@ const Navbar = styled.nav`
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: 1rem;
+  padding: 1rem;
+  user-select: none;
 `;
 
 const BackButton = styled.button`
@@ -53,6 +57,8 @@ const BackButton = styled.button`
   margin-right: auto;
   margin-left: 1rem;
 `;
+
+const ArrowIcon = styled.img``;
 
 const Title = styled.h1`
   text-align: center;
@@ -69,13 +75,13 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin: 5vh 10vw;
+  margin: 3vh 10vw;
   gap: 3vw;
 
   @media ${({ theme }) => theme.size.mobile} {
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
+    height: 50vh;
   }
 `;
 
@@ -83,7 +89,7 @@ const CartContainer = styled.div`
   flex: 8;
 
   @media ${({ theme }) => theme.size.mobile} {
-    flex: none;
+    flex: 1;
   }
 `;
 

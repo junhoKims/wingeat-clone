@@ -55,7 +55,7 @@ const Wrapper = styled.ul`
   padding: 0 5vw;
 
   @media ${({ theme }) => theme.size.mobile} {
-    height: 50vh;
+    height: 70vh;
   }
 `;
 
@@ -72,6 +72,7 @@ const CartItem = styled.li`
   border-radius: 1rem;
   padding: 1.2rem;
   margin-bottom: 0.4rem;
+  user-select: none;
 `;
 
 const CartRow1 = styled.div`
@@ -134,6 +135,11 @@ const QuantityInput = styled.input`
   font-size: 1rem;
   border: 1px solid #aaa;
   border-radius: 0.2rem;
+
+  input[type='number']:hover::-webkit-inner-spin-button,
+  input[type='number']:hover::-webkit-outer-spin-button {
+    opacity: 1;
+  }
 
   &:focus {
     outline: none;
