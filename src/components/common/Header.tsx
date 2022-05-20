@@ -83,6 +83,7 @@ const CartButton = styled.button`
   font-size: 0.8rem;
   font-weight: 700;
   color: #555;
+  height: 1.2rem;
 `;
 
 const CartCountBadge = styled.span`
