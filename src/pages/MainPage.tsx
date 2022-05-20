@@ -26,7 +26,7 @@ const MainPage = () => {
     index: page,
     limit: PAGE_ID_LIMIT,
     callback: handlePageUp,
-    option: { threshold: 0.7 },
+    option: { threshold: 0.5 },
   });
 
   useEffect(() => {
