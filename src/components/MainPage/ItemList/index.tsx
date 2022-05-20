@@ -1,9 +1,10 @@
+import itemPlaceholder from '@assets/placeholder/item_placeholder.png';
+import styled from 'styled-components';
+
+import { memo } from 'react';
 import { IMAGE_ENDPOINT } from '@lib/config/endpoints';
 import { priceCommaRegex } from '@lib/utils';
 import { ItemType } from '@types';
-import styled from 'styled-components';
-import itemPlaceholder from '@assets/placeholders/item_placeholder.png';
-import { memo } from 'react';
 
 type Props = {
   itemList: ItemType[] | [];

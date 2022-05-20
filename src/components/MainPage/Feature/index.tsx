@@ -10,8 +10,8 @@ import './slider.style.css';
 import { FeatureImageType } from '@types';
 import { IMAGE_ENDPOINT } from '@lib/config/endpoints';
 
-import placeholderMobileSrc from '@assets/placeholders/feature_placeholder_md.png';
-import placeholderPCSrc from '@assets/placeholders/feature_placeholder_lg.png';
+import placeholderMobileSrc from '@assets/placeholder/feature_placeholder_md.png';
+import placeholderPCSrc from '@assets/placeholder/feature_placeholder_lg.png';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
