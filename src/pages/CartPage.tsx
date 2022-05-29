@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router';
-
 import backArrowSrc from '@assets/icon/back-arrow.svg';
 import styled from 'styled-components';
 import useCartList from '@hooks/useCartList';
